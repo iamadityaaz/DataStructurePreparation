@@ -24,13 +24,17 @@ public class MainActivity extends AppCompatActivity {
     List<String> mylistofanswer=new ArrayList<>();
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        slideadapter slideadapter = new slideadapter(this);
+        viewPager.setAdapter(slideadapter);
+
+
         myjsonrequest();
 
 
@@ -40,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
     public void myjsonrequest()
     {
         //url to make request
-        String myurl="https://learncodeonline.in/api/android/datastructure.json";
+        String Url="https://learncodeonline.in/api/android/datastructure.json";
 
-        JsonObjectRequest myjsonObjectRequest=new JsonObjectRequest(Request.Method.GET, myurl, null,
+        JsonObjectRequest myjsonObjectRequest=new JsonObjectRequest(Request.Method.GET, Url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
