@@ -22,53 +22,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String myURL = "http://api.openweathermap.org/data/2.5/weather?q=" + "patna" + "&appid=35649579c1d1403a49d25504c76b92c7";
-
-
-        Log.i("Tap", "Tapped" + myURL);
-
-        final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, myURL, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Log.i("JSON", "json" + response);
-
-
-                        try {
-                            String weather = response.getString("weather");
-
-                            JSONArray ar = new JSONArray(weather);
-
-                            for (int i = 0; i < ar.length(); i++) {
-                                JSONObject jr = ar.getJSONObject(i);
-
-                                String st = jr.getString("main");
-
-                                Log.i("main", "st" + st);
-
-
-
-
-//                                result.setText(st);
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.i("Error", "error" + error);
-                    }
-                }
-
-        );
-
-        MySingleton.getInstance(MainActivity.this).addToRequestQueue(jsonObjectRequest);
-
     }
 }
