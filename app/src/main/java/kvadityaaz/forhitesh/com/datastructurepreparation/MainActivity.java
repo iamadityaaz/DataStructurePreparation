@@ -15,22 +15,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import kvadityaaz.forhitesh.com.datastructurepreparation.adapter.CardItemString;
-import kvadityaaz.forhitesh.com.datastructurepreparation.adapter.CardPagerAdapterS;
-import kvadityaaz.forhitesh.com.datastructurepreparation.utils.ShadowTransformer;
-
 public class MainActivity extends AppCompatActivity {
-
-    private ViewPager mViewPager;
-
-    private CardPagerAdapterS mCardAdapter;
-    private ShadowTransformer mCardShadowTransformer;
-    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_swipe_data);
+        setContentView(R.layout.activity_main);
 
         String myURL = "http://api.openweathermap.org/data/2.5/weather?q=" + "patna" + "&appid=35649579c1d1403a49d25504c76b92c7";
 
@@ -56,19 +46,11 @@ public class MainActivity extends AppCompatActivity {
 
                                 Log.i("main", "st" + st);
 
-                                String yo = "yoyoyoyoyo";
 
-                                mCardAdapter.addCardItemS(new CardItemString( st,yo ));
 
 
 //                                result.setText(st);
                             }
-
-
-//                                    result.setText(weather);
-//
-//                                    Log.i("coor", "coordinates" + weather);
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -87,15 +69,6 @@ public class MainActivity extends AppCompatActivity {
         );
 
         MySingleton.getInstance(MainActivity.this).addToRequestQueue(jsonObjectRequest);
-
-        context = this;
-
-        mCardShadowTransformer = new ShadowTransformer(mViewPager, mCardAdapter);
-
-
-        mViewPager = (ViewPager) findViewById(R.id.viewPager);
-        mCardAdapter = new CardPagerAdapterS();
-
 
     }
 }
