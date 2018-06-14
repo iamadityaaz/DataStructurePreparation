@@ -20,8 +20,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    List<String> mylistofquestion=new ArrayList<>();
-    List<String> mylistofanswer=new ArrayList<>();
+
+   public List<String> mylistofquestion=new ArrayList<>();
+   public List<String> mylistofanswer=new ArrayList<>();
+
 
 
     @Override
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         myjsonrequest();
+
 
 
 
@@ -67,12 +70,23 @@ public class MainActivity extends AppCompatActivity {
 
                                 String question=jsonObjectinarray.getString("question");
                                 String answer=jsonObjectinarray.getString("Answer");
+
                                 mylistofquestion.add(i,question);
                                 mylistofanswer.add(i,answer);
+
+
 
                             }
                             Log.i("mylistofquestion","is "+mylistofquestion);
                             Log.i("mylistofanswer","is "+mylistofanswer);
+
+
+                            for (int i1=0; i1 < mylistofquestion.size(); i1++)
+                            {
+
+                                Log.i("Value of element "+ i1,mylistofquestion.get(i1));
+
+                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();

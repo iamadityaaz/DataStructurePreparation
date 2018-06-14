@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class slideadapter extends PagerAdapter {
 
     Context context;
@@ -18,9 +21,11 @@ public class slideadapter extends PagerAdapter {
     //list of image
     int images[] = {R.drawable.bulbblue,R.drawable.bulbgreen,R.drawable.circle,R.drawable.cross};
     //lisst of title
+
     public String[] titleqw={"aaasdasdas","yuyui","third","fourth"};
     //list of desscription
     public String[] descriptionqw={"one","two","three","four"};
+
 
     //list of background color
     public int[] backgroundColor = {
@@ -98,6 +103,7 @@ public class slideadapter extends PagerAdapter {
         ImageView imgslide = (ImageView)  view.findViewById(R.id.imageviewofus);
         TextView txttitle= (TextView) view.findViewById(R.id.texta);
         TextView description = (TextView) view.findViewById(R.id.textb);
+
         layoutslide.setBackgroundColor(backgroundColor[position]);
         imgslide.setImageResource(images[position]);
         txttitle.setText(titleqw[position]);
